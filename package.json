@@ -1,0 +1,23 @@
+{
+  "name": "bloggieblogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartkeerthi/bloggieBlogs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smartkeerthi/bloggieBlogs/issues"
+  },
+  "homepage": "https://github.com/smartkeerthi/bloggieBlogs#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
