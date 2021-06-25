@@ -297,11 +297,15 @@ section, .section {
 }
 
 .slide {
-  display: inline-block;
-  width: 33%;
+  /* display: inline-block; */
+  width: 35%;
   height: 100% !important;
   padding: 10px;
   margin: 0px 10px 0px 10px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .main-article {
@@ -364,7 +368,7 @@ section, .section {
 
 .snippet__body {
   font-size: 0.7em;
-  width: 90%;
+  width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -440,6 +444,10 @@ section, .section {
   color: var(--clr-primary-500);
   font-size: var(--fs-500);
 }
+.blogPost__meta, .snippet__meta {
+  color: #aaaaaa;
+  font-size: 12px;
+}
 
 @media (max-width: 768px) {
   .blogPost{
@@ -449,5 +457,9 @@ section, .section {
   .blogPost .blogPost__content{
     margin-top: 20px;
     margin-left: 0;
+  }
+  .next, .prev, .nextAll, .prevAll {
+    display: none;
+    opacity: 0;
   }
 }
