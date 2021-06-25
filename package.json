@@ -1,7 +1,7 @@
 {
   "name": "bloggieblogs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Blog Website",
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
