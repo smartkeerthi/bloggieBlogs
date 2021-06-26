@@ -1,24 +1,109 @@
 ---
-title: My First Article
-description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-  Perferendis accusantium sit illo neque rem omnis quaerat, nam similique vitae
-  delectus ad magni vel quo maxime, magnam placeat. Reprehenderit, distinctio
-  aliquam?
+title: Live streaming using Node Media Server
+description: In this blog post you will learn how to create your own _live
+  streaming_ server using Node Media Server
 author: keerthivasan
-date: 2021-05-01
+date: 2021-06-26T05:05:03.276Z
 tags:
   - post
   - featured
-image: /assets/blog/article-1.jpg
-imageAlt: This is a test
+  - live-streaming
+image: /assets/blog/live-streaming-image.png
+imageAlt: Live streaming server
+---
+# Live streaming using Node Media Server
+
+In this blog post you will learn how to create your own _live streaming_ server using **Node Media Server**
+
+## Features of _Node media server_
+
+- Cross platform support Windows/Linux/Unix
+- Support H.264/H.265(flv_id=12)/AAC/MP3/SPEEX/NELLYMOSER/G.711/OPUS(flv_id=13)
+- Support GOP cache
+- Support remux to LIVE-HTTP/WS-FLV,Support NodePlayer.js playback
+- Support remux to HLS/DASH/MP4
+- Support xycdn style authentication
+- Support event callback
+- Support https/wss
+- Support Server Monitor
+- Support Rtsp/Rtmp relay
+- Support api control relay
+- Support real-time multi-resolution transcoding
+
+# Lets starts building
+
+> Before that you need to have [Node Js](https://nodejs.org/en/download/ "Node js download") installed on your system
+
+create a folder named **"live_streaming"**
+
+    mkdir live_streaming
+    cd live_streaming
+
+Install node-media-server
+
+    npm install node-media-server
+
+create a file **"app.js"**
+
+    touch app.js
+    nano app.js
+
+Copy and paste the code
+
+    const NodeMediaServer = require('node-media-server');
+
+    const config = {
+    rtmp: {
+        port: 1935,
+        chunk_size: 60000,
+        gop_cache: true,
+        ping: 30,
+        ping_timeout: 60
+    },
+    http: {
+        port: 8000,
+        allow_origin: '*'
+    }
+    };
+
+    var nms = new NodeMediaServer(config)
+    nms.run();
+
+# Publish your stream using _OBS_
+
+> Go to settings > stream
+
+    Stream Type: Custom
+    URL: rtmp://localhost/live
+    Stream key : STREAM_NAME
+
+# View the Stream
+
+## RTMP
+
+Open VLC player
+
+> Media > Open Network Stream
+
+or
+
+> Ctrl+N
+
+paste this url in the input
+
+    rtmp://localhost/live/STREAM_NAME
+
+## http-flv
+
+    http://localhost:8000/live/STREAM_NAME.flv
+
+## websocket-flv
+
+    ws://localhost:8000/live/STREAM_NAME.flv
+
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel. Donec ultrices tincidunt arcu non sodales. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. Pretium quam vulputate dignissim suspendisse in est. Lobortis mattis aliquam faucibus purus in massa tempor nec. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Vulputate eu scelerisque felis imperdiet proin. Nisl nisi scelerisque eu ultrices.
 
-Enim nulla aliquet porttitor lacus luctus accumsan. Vulputate mi sit amet mauris commodo quis. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Placerat orci nulla pellentesque dignissim. Consequat mauris nunc congue nisi. Nec nam aliquam sem et tortor consequat. Consequat semper viverra nam libero justo laoreet sit amet. Id interdum velit laoreet id donec. Turpis in eu mi bibendum neque. Tincidunt vitae semper quis lectus. Suscipit adipiscing bibendum est ultricies integer quis auctor. Posuere urna nec tincidunt praesent semper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Diam maecenas ultricies mi eget mauris. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Dui sapien eget mi proin sed.
+Now you have created your own live streaming server. To learn more about this see the [node-media-server](https://github.com/illuspas/Node-Media-Server "Node media server github")
 
-In iaculis nunc sed augue lacus. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Consectetur adipiscing elit ut aliquam. Tortor consequat id porta nibh venenatis cras sed. Integer enim neque volutpat ac tincidunt. Pellentesque pulvinar pellentesque habitant morbi. Ut enim blandit volutpat maecenas. Risus quis varius quam quisque id. Turpis tincidunt id aliquet risus. Congue eu consequat ac felis donec.
-
-Aliquam vestibulum morbi blandit cursus risus at. Malesuada fames ac turpis egestas sed tempus. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Enim diam vulputate ut pharetra sit amet aliquam. Est ante in nibh mauris cursus mattis. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Nec ultrices dui sapien eget mi proin sed libero enim. Sed sed risus pretium quam vulputate. Sit amet luctus venenatis lectus magna.
-
-Mauris nunc congue nisi vitae suscipit tellus mauris. Vitae et leo duis ut. Arcu cursus euismod quis viverra nibh. Amet mauris commodo quis imperdiet. Condimentum lacinia quis vel eros donec. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla. Faucibus nisl tincidunt eget nullam. Cursus metus aliquam eleifend mi in nulla. Ut placerat orci nulla pellentesque dignissim enim sit amet. Lobortis feugiat vivamus at augue eget arcu dictum. Nunc faucibus a pellentesque sit amet porttitor. Quis varius quam quisque id diam vel quam elementum pulvinar.
+Thanks for seeing this blog post in [bloggie blogs](https://bloggie-blogs.netlify.app/ "Bloggie-Blogs Site")
