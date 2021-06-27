@@ -17,7 +17,7 @@ In this blog post your are going to create a _custom cursor_ for your website us
 Click on the image to view the video tutorial
 
 
-[![YouTube Link](blob:https://bloggie-blogs.netlify.app/38389050-b6a9-48f2-97f6-2c85641fcea1)](https://youtu.be/rj47E2rmzkk)
+[![YouTube Link](/assets/blog/customcursor.jpg)](https://youtu.be/rj47E2rmzkk)
 
 # Lets start the tutorial
 
